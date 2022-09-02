@@ -5,13 +5,15 @@ using UnityEngine;
 public class BallScript : MonoBehaviour 
 {
 
-
+	private Player_score player_score_script;
 	private float forceX, forceY;
 
 	private Rigidbody2D myBody;
 
 	[SerializeField] private bool moveLeft, moveRight;
 	[SerializeField] GameObject originalBall;
+	[SerializeField] GameObject particle;
+	[SerializeField] GameObject game_over_panel;
 
 	private GameObject ball1, ball2 ;
 	private BallScript ball1Script, ball2Script;
@@ -20,6 +22,7 @@ public class BallScript : MonoBehaviour
 	// Use this for initialization
 	void Awake () 
 	{
+		player_score_script = GameObject.Find ("Score_text").GetComponent<Player_score> ();
 		myBody = GetComponent<Rigidbody2D> ();
 		SetBallSpeed ();
 	}
@@ -111,8 +114,20 @@ public class BallScript : MonoBehaviour
 		}
 	}
 
+	private void Game_Over(GameObject coll)
+	{
+		GameObject temp_part = Instantiate (particle, coll.transform.position, Quaternion.identity);
+		temp_part.transform.localScale = new Vector3 (0.5f, 0.5f, 0.5f);
+		Instantiate (game_over_panel);
+		Destroy (coll.gameObject);
+	}
+
 	void OnTriggerEnter2D(Collider2D coll)
 	{
+		if (coll.tag == "Player") 
+		{
+			Game_Over(coll.gameObject);
+		}
 		if (coll.tag == "Ground") 
 		{
 			myBody.velocity = new Vector2 (0, forceY);
@@ -127,11 +142,15 @@ public class BallScript : MonoBehaviour
 		}
 		if (coll.tag == "Rocket") 
 		{
+			player_score_script.score++;	
 			if (gameObject.tag != "Smallest Ball") {
+				
 				InstantiateBallsAndTurnOffCurrentBall ();
 			}
 			else
 			{
+				GameObject temp_particle = Instantiate (particle, transform.position, Quaternion.identity);
+				temp_particle.transform.localScale = new Vector3 (0.1f, 0.1f, 0.1f);
 				Destroy (gameObject);
 			}
 		}

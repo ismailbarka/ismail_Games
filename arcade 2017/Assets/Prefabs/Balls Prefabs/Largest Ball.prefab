@@ -93,6 +93,9 @@ MonoBehaviour:
   moveRight: 1
   originalBall: {fileID: 1412259563762596, guid: ccf008dc56748aa4cb31d49b71e05304,
     type: 2}
+  particle: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 2}
+  game_over_panel: {fileID: 1714855433130248, guid: ab449d0ecf744874a9c14520865e0077,
+    type: 2}
   popSounds: []
 --- !u!212 &212519850051188238
 SpriteRenderer:
