@@ -71,7 +71,7 @@ public class Player_Script : MonoBehaviour {
 	{
 		transform.position = new Vector3 (300.0f, 300.0f, 0.0f);
 		yield return new WaitForSeconds (2);
-		SceneManager.LoadScene ("GamePlay");
+		SceneManager.LoadScene ("Main_Menu");
 	}
 		
 }

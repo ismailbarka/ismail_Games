@@ -1766,6 +1766,9 @@ MonoBehaviour:
   prefabs:
   - {fileID: 1826069042215168, guid: 3e96f463178e62449a3dcba0fcf5734d, type: 2}
   - {fileID: 1026461535891436, guid: 5e5277afa8031734688f81725abe4aae, type: 2}
+  gameManager: {fileID: 0}
+  min_Time: 0
+  max_Time: 0
 --- !u!1 &1771207647
 GameObject:
   m_ObjectHideFlags: 0
@@ -2081,7 +2084,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1893346772}
   m_LocalRotation: {x: 0, y: 0, z: 0.006974053, w: 0.9999757}
-  m_LocalPosition: {x: -4.702067, y: -1.8382283, z: 0}
+  m_LocalPosition: {x: -2.52, y: -1.8382283, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 0}
